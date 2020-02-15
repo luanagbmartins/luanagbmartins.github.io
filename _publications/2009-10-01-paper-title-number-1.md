@@ -1,15 +1,15 @@
 ---
-title: "Paper Title Number 1"
+title: "Analysis of the capability of generalization of reinforcement learning algorithms in the context of electronic games"
 collection: publications
-permalink: /publication/2009-10-01-paper-title-number-1
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
-date: 2009-10-01
-venue: 'Journal 1'
-paperurl: 'http://academicpages.github.io/files/paper1.pdf'
-citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
+permalink: /publication/2019-12-12-bachelor-thesis
+excerpt: 'In major problems, reinforcement learning systems should use parameterized function approximators, such as neural networks, to generalize between similar situations and actions. Although proven to be an effective method for specific complex problems, they still fail in the generalization aspect, and the most common reinforcement learning benchmarks still use the same environments for both training and testing. To be able to evaluate the ability of an algorithm to generalize across tasks requires benchmarks that measure its performance on a set of tests that are distinct from those used in training. Therefore, this work aims to evaluate the performance of the Proximal Policy Optimization (PPO) algorithm in the General Video Game Artificial Intelligence (GVGAI) benchmark that provides a subdivision of a virtual world of a game in different stages or levels. Although PPO generally reports great results, it can be noted that the algorithm suffers from overfitting to the training set.'
+date: 2019-12-12
+venue: 'Bachelor Thesis'
+paperurl: 'https://github.com/luanagbmartins/drl-undergrad-thesis/blob/master/MonografiaTCC.pdf'
+citation: "MARTINS, L. G. B et al. (2019). &quot;Analysis of the capability of generalization of reinforcement learning algorithms in the context of electronic games.&quot; Bachelor's Thesis."
 ---
-This paper is about the number 1. The number 2 is left for future work.
+In major problems, reinforcement learning systems should use parameterized function approximators, such as neural networks, to generalize between similar situations and actions. Although proven to be an effective method for specific complex problems, they still fail in the generalization aspect, and the most common reinforcement learning benchmarks still use the same environments for both training and testing. To be able to evaluate the ability of an algorithm to generalize across tasks requires benchmarks that measure its performance on a set of tests that are distinct from those used in training. Therefore, this work aims to evaluate the performance of the Proximal Policy Optimization (PPO) algorithm in the General Video Game Artificial Intelligence (GVGAI) benchmark that provides a subdivision of a virtual world of a game in different stages or levels. Although PPO generally reports great results, it can be noted that the algorithm suffers from overfitting to the training set.
 
-[Download paper here](http://academicpages.github.io/files/paper1.pdf)
+[Download paper here](https://github.com/luanagbmartins/drl-undergrad-thesis/blob/master/MonografiaTCC.pdf)
 
-Recommended citation: Your Name, You. (2009). "Paper Title Number 1." <i>Journal 1</i>. 1(1).
+MARTINS, L. G. B et al. (2019). &quot;Analysis of the capability of generalization of reinforcement learning algorithms in the context of electronic games.&quot; Bachelor's Thesis.
