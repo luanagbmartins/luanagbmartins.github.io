@@ -4,6 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luana Martins</title>
+  <meta name="description" content="Luana Martins - Research Scientist specializing in deep reinforcement learning, robotics, and LLM alignment. Building intelligent systems that learn and adapt." />
+  <meta name="author" content="Luana Martins" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Luana Martins - Research Scientist" />
+  <meta property="og:description" content="Research scientist working at the intersection of deep reinforcement learning, robotics, and LLM alignment." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luanagbmartins.github.io" />
+  <meta property="og:image" content="https://luanagbmartins.github.io/IMG_0273.JPG" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Luana Martins - Research Scientist" />
+  <meta name="twitter:description" content="Research scientist working at the intersection of deep reinforcement learning, robotics, and LLM alignment." />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -17,7 +35,27 @@
       --accent: #2563eb;
       --border: #e5e7eb;
       --tag-bg: #f3f4f6;
-      --max-w: 720px;
+      --card-bg: #ffffff;
+      --nav-bg: rgba(255,255,255,0.92);
+      --max-w: 960px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f0f0f;
+        --text: #f5f5f5;
+        --muted: #9ca3af;
+        --accent: #60a5fa;
+        --border: #2d2d2d;
+        --tag-bg: #1f1f1f;
+        --card-bg: #171717;
+        --nav-bg: rgba(15,15,15,0.92);
+        --shadow: 0 4px 20px rgba(0,0,0,0.3);
+        --shadow-hover: 0 8px 30px rgba(0,0,0,0.4);
+      }
+      .tag.cited { background: rgba(96, 165, 250, 0.15); color: var(--accent); }
     }
 
     html { scroll-behavior: smooth; }
@@ -30,11 +68,26 @@
       line-height: 1.7;
     }
 
+    /* SKIP LINK */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 16px;
+      background: var(--accent);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      z-index: 200;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 16px; }
+
     /* NAV */
     nav {
       position: sticky;
       top: 0;
-      background: rgba(255,255,255,0.92);
+      background: var(--nav-bg);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
       z-index: 100;
@@ -66,8 +119,31 @@
       font-size: 13px;
       font-weight: 500;
       transition: color 0.15s;
+      position: relative;
     }
     nav ul a:hover { color: var(--text); }
+    nav ul a.active { color: var(--accent); }
+    nav ul a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px;
+    }
+
+    /* HAMBURGER MENU */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--text);
+    }
+    .menu-toggle svg { display: block; }
 
     /* SECTIONS */
     section {
@@ -107,24 +183,47 @@
     .about-body p + p { margin-top: 12px; }
     .links-row {
       display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
+      gap: 12px;
+      flex-wrap: nowrap;
       margin-top: 28px;
     }
     .links-row a {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       text-decoration: none;
       color: var(--text);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
       border: 1px solid var(--border);
-      padding: 6px 14px;
+      padding: 5px 10px;
       border-radius: 6px;
       transition: border-color 0.15s, color 0.15s;
+      white-space: nowrap;
     }
     .links-row a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* HERO LAYOUT */
+    .hero-content {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+    }
+    .hero-text { flex: 1; }
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .profile-photo:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-hover);
+    }
 
     /* SECTION HEADINGS */
     h2 {
@@ -137,7 +236,7 @@
     /* RESEARCH */
     .research-areas {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
       margin-bottom: 24px;
     }
@@ -145,6 +244,24 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 20px;
+      background: var(--card-bg);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+    .research-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent);
+    }
+    .research-card.selected {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, var(--card-bg) 0%, rgba(37, 99, 235, 0.08) 100%);
+      box-shadow: var(--shadow);
+    }
+    @media (prefers-color-scheme: dark) {
+      .research-card.selected {
+        background: linear-gradient(135deg, var(--card-bg) 0%, rgba(96, 165, 250, 0.12) 100%);
+      }
     }
     .research-card .icon { font-size: 20px; margin-bottom: 10px; }
     .research-card h3 { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
@@ -156,6 +273,142 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 18px 20px;
+      background: var(--card-bg);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pub:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .pub.featured {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, var(--card-bg) 0%, rgba(37, 99, 235, 0.05) 100%);
+    }
+    @media (prefers-color-scheme: dark) {
+      .pub.featured {
+        background: linear-gradient(135deg, var(--card-bg) 0%, rgba(96, 165, 250, 0.08) 100%);
+      }
+    }
+    .featured-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .pub-list .pub.hidden { display: none; }
+    .project-list .project.hidden { display: none; }
+    
+    /* RESEARCH DETAILS PANEL */
+    .research-details {
+      display: none;
+      margin-top: 24px;
+      padding: 24px;
+      background: var(--tag-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      animation: slideDown 0.3s ease-out;
+    }
+    .research-details.active { display: block; }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .research-details-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .research-details-header h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .research-details-header h3 span { color: var(--accent); }
+    .close-details {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 20px;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .close-details:hover { color: var(--text); background: var(--border); }
+    .research-details-section { margin-bottom: 20px; }
+    .research-details-section:last-child { margin-bottom: 0; }
+    .research-details-section h4 {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .research-details .mini-pub {
+      padding: 12px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    .research-details .mini-pub:last-child { margin-bottom: 0; }
+    .research-details .mini-pub-title {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .research-details .mini-pub-title a { color: var(--text); text-decoration: none; }
+    .research-details .mini-pub-title a:hover { color: var(--accent); }
+    .research-details .mini-pub-meta { font-size: 11px; color: var(--muted); }
+    .research-details .mini-project {
+      padding: 12px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .research-details .mini-project:last-child { margin-bottom: 0; }
+    .research-details .mini-project-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .research-details .mini-project h5 { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+    .research-details .mini-project p { font-size: 12px; color: var(--muted); }
+    .research-details .empty-message {
+      padding: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      font-style: italic;
+    }
+
+    .show-more-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .show-more-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
     .pub-title {
       font-size: 14px;
@@ -185,6 +438,12 @@
       display: flex;
       gap: 14px;
       align-items: flex-start;
+      background: var(--card-bg);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
     }
     .project-dot {
       width: 8px;
@@ -211,8 +470,13 @@
       font-size: 14px;
       font-weight: 500;
     }
+    .contact-link svg {
+      flex-shrink: 0;
+      color: var(--muted);
+    }
     .contact-link:hover { color: var(--accent); }
-    .contact-link span.label { color: var(--muted); font-weight: 400; font-size: 13px; min-width: 90px; }
+    .contact-link:hover svg { color: var(--accent); }
+    .contact-link span.label { color: var(--muted); font-weight: 400; font-size: 13px; min-width: 70px; }
 
     /* FOOTER */
     footer {
@@ -223,18 +487,66 @@
       border-top: 1px solid var(--border);
     }
 
+    /* SCROLL ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* RESPONSIVE */
     @media (max-width: 600px) {
       h1 { font-size: 1.8rem; }
-      .research-areas { grid-template-columns: 1fr; }
+      .research-areas { grid-template-columns: 1fr 1fr; }
+      .hero-content {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+      }
+      .profile-photo {
+        width: 140px;
+        height: 140px;
+      }
+      .links-row { justify-content: center; flex-wrap: wrap; }
+      
+      .menu-toggle { display: block; }
+      nav ul {
+        position: fixed;
+        top: 52px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s, visibility 0.2s;
+      }
+      nav ul.open {
+        opacity: 1;
+        visibility: visible;
+      }
+      nav ul a { font-size: 18px; }
     }
   </style>
 </head>
 <body>
 
+<a href="#about" class="skip-link">Skip to main content</a>
+
 <nav>
   <div class="inner">
     <a href="#about" class="logo">Luana Martins</a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
     <ul>
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
@@ -246,17 +558,19 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <span class="hero-tag">Research Scientist</span>
-  <h1>Hey, I'm Luana 👋</h1>
-  <div class="about-body">
-    <p>
-      I'm a research scientist working at the intersection of <strong>deep reinforcement learning</strong>, robotics, and LLM alignment. My work focuses on building intelligent systems that can learn, adapt, and behave reliably in the real world.
-    </p>
-    <p>
-      I've collaborated with companies on applied AI R&D projects — from recommendation systems and credit recovery to natural language models for specialized domains. I'm particularly interested in bridging rigorous research with practical, deployable solutions.
-    </p>
-  </div>
-  <div class="links-row">
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="hero-tag">Research Scientist</span>
+      <h1>Hey, I'm Luana 👋</h1>
+      <div class="about-body">
+        <p>
+          I'm a research scientist working at the intersection of <strong>deep reinforcement learning</strong>, robotics, and LLM alignment. My work focuses on building intelligent systems that can learn, adapt, and behave reliably in the real world.
+        </p>
+        <p>
+          I've collaborated with companies on applied AI R&D projects — from recommendation systems and credit recovery to natural language models for specialized domains. I'm particularly interested in bridging rigorous research with practical, deployable solutions.
+        </p>
+      </div>
+      <div class="links-row">
     <a href="mailto:luanagbmartins@gmail.com">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
       Email
@@ -273,42 +587,61 @@
       <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
       GitHub
     </a>
+      </div>
+    </div>
+    <img src="IMG_0273.JPG" alt="Luana Martins" class="profile-photo" loading="lazy" />
   </div>
 </section>
 
 <!-- RESEARCH -->
-<section id="research">
+<section id="research" class="fade-in">
   <h2>Research Interests</h2>
   <div class="research-areas">
-    <div class="research-card">
+    <div class="research-card" data-category="rl" onclick="showResearchDetails('rl', 'Deep Reinforcement Learning')">
       <div class="icon">🤖</div>
       <h3>Deep Reinforcement Learning</h3>
       <p>Sequential decision-making, policy optimization, offline RL, and RL for real-world systems.</p>
     </div>
-    <div class="research-card">
+    <div class="research-card" data-category="robotics" onclick="showResearchDetails('robotics', 'Robotics')">
       <div class="icon">🦾</div>
       <h3>Robotics</h3>
       <p>Learning-based control, sim-to-real transfer, and embodied agents.</p>
     </div>
-    <div class="research-card">
+    <div class="research-card" data-category="llm" onclick="showResearchDetails('llm', 'LLM Alignment')">
       <div class="icon">🧠</div>
       <h3>LLM Alignment</h3>
       <p>Reasoning, uncertainty, and building language models that behave reliably and safely.</p>
     </div>
-    <div class="research-card">
+    <div class="research-card" data-category="recsys" onclick="showResearchDetails('recsys', 'Recommender Systems')">
       <div class="icon">📊</div>
       <h3>Recommender Systems</h3>
       <p>Personalization, fairness, and RL-based recommendation in production environments.</p>
     </div>
   </div>
+  
+  <div class="research-details" id="research-details">
+    <div class="research-details-header">
+      <h3>Related work in <span id="research-details-title"></span></h3>
+      <button class="close-details" onclick="closeResearchDetails()" aria-label="Close">×</button>
+    </div>
+    <div class="research-details-section">
+      <h4>Publications</h4>
+      <div id="research-details-pubs"></div>
+    </div>
+    <div class="research-details-section">
+      <h4>R&D Projects</h4>
+      <div id="research-details-projects"></div>
+    </div>
+  </div>
 </section>
 
 <!-- PUBLICATIONS -->
-<section id="publications">
+<section id="publications" class="fade-in">
   <h2>Publications</h2>
   <div class="pub-list">
 
-    <div class="pub">
+    <div class="pub featured" data-categories="rl">
+      <span class="featured-badge">⭐ Featured</span>
       <div class="pub-title">
         <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:2osOgNQ5qMEC" target="_blank" rel="noopener">
           Sliding Puzzles Gym: A Scalable Benchmark for State Representation in Visual Reinforcement Learning
@@ -323,7 +656,8 @@
       </div>
     </div>
 
-    <div class="pub">
+    <div class="pub featured" data-categories="rl">
+      <span class="featured-badge">⭐ Featured</span>
       <div class="pub-title">
         <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:UeHWp8X0CEIC" target="_blank" rel="noopener">
           Learning Without Critics? Revisiting GRPO in Classical Reinforcement Learning Environments
@@ -337,7 +671,7 @@
       </div>
     </div>
 
-    <div class="pub">
+    <div class="pub hidden" data-categories="llm">
       <div class="pub-title">
         <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener">
           InfoQuest: Evaluating Multi-Turn Dialogue Agents for Open-Ended Conversations with Hidden Context
@@ -351,7 +685,7 @@
       </div>
     </div>
 
-    <div class="pub">
+    <div class="pub hidden" data-categories="rl recsys">
       <div class="pub-title">
         <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">
           PulseRL: Enabling Offline Reinforcement Learning for Digital Marketing Systems via Conservative Q-Learning
@@ -366,7 +700,7 @@
       </div>
     </div>
 
-    <div class="pub">
+    <div class="pub hidden" data-categories="llm">
       <div class="pub-title">
         <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:qjMakFHDy7sC" target="_blank" rel="noopener">
           Partial Reasoning in Language Models: Search and Refinement Guided by Uncertainty
@@ -380,7 +714,7 @@
       </div>
     </div>
 
-    <div class="pub">
+    <div class="pub hidden" data-categories="rl">
       <div class="pub-title">
         <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener">
           Reinforcement Learning for Debt Pricing: A Case Study in Financial Services
@@ -394,7 +728,7 @@
       </div>
     </div>
 
-    <div class="pub">
+    <div class="pub hidden" data-categories="rl recsys">
       <div class="pub-title">
         <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener">
           Personalizing Fairness: Adaptive RL with User Diversity Preference for Recommender Systems
@@ -409,17 +743,18 @@
     </div>
 
   </div>
+  <button class="show-more-btn" onclick="togglePublications(this)">Show all publications</button>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
+<section id="projects" class="fade-in">
   <h2>R&D Projects</h2>
   <p style="color: var(--muted); font-size: 13px; margin-bottom: 24px;">
     Applied AI research in collaboration with industry partners, focused on deploying intelligent systems in production.
   </p>
   <div class="project-list">
 
-    <div class="project">
+    <div class="project" data-categories="rl">
       <div class="project-dot"></div>
       <div>
         <h3>Debt Collection Personalization</h3>
@@ -430,7 +765,7 @@
       </div>
     </div>
 
-    <div class="project">
+    <div class="project" data-categories="rl">
       <div class="project-dot"></div>
       <div>
         <h3>Credit Recovery Algorithms</h3>
@@ -441,7 +776,7 @@
       </div>
     </div>
 
-    <div class="project">
+    <div class="project" data-categories="recsys">
       <div class="project-dot"></div>
       <div>
         <h3>Agribusiness Marketplace Personalization</h3>
@@ -452,7 +787,7 @@
       </div>
     </div>
 
-    <div class="project">
+    <div class="project hidden" data-categories="recsys">
       <div class="project-dot"></div>
       <div>
         <h3>Agribusiness Search & Recommendation Engine</h3>
@@ -463,7 +798,7 @@
       </div>
     </div>
 
-    <div class="project">
+    <div class="project hidden" data-categories="recsys">
       <div class="project-dot"></div>
       <div>
         <h3>Tourism Offer Personalization</h3>
@@ -474,7 +809,7 @@
       </div>
     </div>
 
-    <div class="project">
+    <div class="project hidden" data-categories="recsys">
       <div class="project-dot"></div>
       <div>
         <h3>Intelligent Vehicle Inspection</h3>
@@ -485,7 +820,7 @@
       </div>
     </div>
 
-    <div class="project">
+    <div class="project hidden" data-categories="llm">
       <div class="project-dot"></div>
       <div>
         <h3>Large Language Model for the Energy Sector</h3>
@@ -497,28 +832,33 @@
     </div>
 
   </div>
+  <button class="show-more-btn" onclick="toggleProjects(this)">Show all projects</button>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="fade-in">
   <h2>Contact</h2>
   <p class="contact-body">
     Feel free to reach out — whether it's about research, collaboration, or just to say hi.
   </p>
   <div class="contact-links">
     <a href="mailto:luanagbmartins@gmail.com" class="contact-link">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
       <span class="label">Email</span>
       luanagbmartins@gmail.com
     </a>
     <a href="https://www.linkedin.com/in/luanagbmartins/" target="_blank" rel="noopener" class="contact-link">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
       <span class="label">LinkedIn</span>
       /in/luanagbmartins
     </a>
     <a href="https://scholar.google.com/citations?user=ye1U4s8AAAAJ&hl=en" target="_blank" rel="noopener" class="contact-link">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
       <span class="label">Scholar</span>
       Luana Guedes Barros Martins
     </a>
     <a href="https://github.com/luanagbmartins" target="_blank" rel="noopener" class="contact-link">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
       <span class="label">GitHub</span>
       luanagbmartins
     </a>
@@ -528,6 +868,196 @@
 <footer>
   © 2026 Luana Martins · Built with GitHub Pages
 </footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Active nav state
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav ul a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('nav ul');
+  
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', navMenu.classList.contains('open'));
+  });
+
+  // Close mobile menu on link click
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Current active category
+  let activeCategory = null;
+
+  // Research data for the details panel
+  const researchData = {
+    rl: {
+      publications: [
+        { title: 'Sliding Puzzles Gym: A Scalable Benchmark for State Representation in Visual Reinforcement Learning', meta: 'BLM de Oliveira, LGB Martins, B Brandão, et al. · arXiv, 2024', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:2osOgNQ5qMEC' },
+        { title: 'Learning Without Critics? Revisiting GRPO in Classical Reinforcement Learning Environments', meta: 'BLM de Oliveira, FV Frujeri, LGB Martins, et al. · arXiv, 2025', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:UeHWp8X0CEIC' },
+        { title: 'PulseRL: Enabling Offline Reinforcement Learning for Digital Marketing Systems via Conservative Q-Learning', meta: 'L Melo*, L Martins*, B Oliveira*, B Brandao*, et al. · NeurIPS Offline RL Workshop, 2021', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:u5HHmVD_uO8C' },
+        { title: 'Reinforcement Learning for Debt Pricing: A Case Study in Financial Services', meta: 'B Brandão, LGB Martins, BLM de Oliveira, et al. · RLC Workshop, 2025', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:d1gkVwhDpl0C' },
+        { title: 'Personalizing Fairness: Adaptive RL with User Diversity Preference for Recommender Systems', meta: 'LGB Martins, BLM de Oliveira, B Brandão, M Santana · RLC Workshop, 2025', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:u-x6o8ySG0sC' }
+      ],
+      projects: [
+        { title: 'Debt Collection Personalization', desc: 'Reinforcement learning to orchestrate debt recovery actions' },
+        { title: 'Credit Recovery Algorithms', desc: 'RL applied to improve conversion of newly negotiated debts' }
+      ]
+    },
+    robotics: {
+      publications: [],
+      projects: []
+    },
+    llm: {
+      publications: [
+        { title: 'InfoQuest: Evaluating Multi-Turn Dialogue Agents for Open-Ended Conversations with Hidden Context', meta: 'BLM de Oliveira, LGB Martins, B Brandão, LC Melo · arXiv, 2025', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:9yKSN-GCB0IC' },
+        { title: 'Partial Reasoning in Language Models: Search and Refinement Guided by Uncertainty', meta: 'M da Luz, B Brandão, L Martins, et al. · arXiv, 2026', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:qjMakFHDy7sC' }
+      ],
+      projects: [
+        { title: 'Large Language Model for the Energy Sector', desc: 'Domain-specific LLM for the electric power sector' }
+      ]
+    },
+    recsys: {
+      publications: [
+        { title: 'PulseRL: Enabling Offline Reinforcement Learning for Digital Marketing Systems via Conservative Q-Learning', meta: 'L Melo*, L Martins*, B Oliveira*, B Brandao*, et al. · NeurIPS Offline RL Workshop, 2021', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:u5HHmVD_uO8C' },
+        { title: 'Personalizing Fairness: Adaptive RL with User Diversity Preference for Recommender Systems', meta: 'LGB Martins, BLM de Oliveira, B Brandão, M Santana · RLC Workshop, 2025', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:u-x6o8ySG0sC' }
+      ],
+      projects: [
+        { title: 'Agribusiness Marketplace Personalization', desc: 'Personalizing offers of agricultural products' },
+        { title: 'Agribusiness Search & Recommendation Engine', desc: 'Search and recommendation for agribusiness marketplace' },
+        { title: 'Tourism Offer Personalization', desc: 'Personalizing travel products — flights, hotels, tours' },
+        { title: 'Intelligent Vehicle Inspection', desc: 'Parts recommendation for automotive repair' }
+      ]
+    }
+  };
+
+  // Show research details panel
+  function showResearchDetails(category, name) {
+    const cards = document.querySelectorAll('.research-card');
+    const clickedCard = document.querySelector(`.research-card[data-category="${category}"]`);
+    const detailsPanel = document.getElementById('research-details');
+    
+    // Toggle off if same category clicked
+    if (activeCategory === category) {
+      closeResearchDetails();
+      return;
+    }
+    
+    // Update active category
+    activeCategory = category;
+    
+    // Update card selection
+    cards.forEach(card => card.classList.remove('selected'));
+    clickedCard.classList.add('selected');
+    
+    // Update title
+    document.getElementById('research-details-title').textContent = name;
+    
+    // Get data for category
+    const data = researchData[category];
+    
+    // Populate publications
+    const pubsContainer = document.getElementById('research-details-pubs');
+    if (data.publications.length > 0) {
+      pubsContainer.innerHTML = data.publications.map(pub => `
+        <div class="mini-pub">
+          <div class="mini-pub-title"><a href="${pub.url}" target="_blank" rel="noopener">${pub.title}</a></div>
+          <div class="mini-pub-meta">${pub.meta}</div>
+        </div>
+      `).join('');
+    } else {
+      pubsContainer.innerHTML = '<div class="empty-message">No publications yet in this area.</div>';
+    }
+    
+    // Populate projects
+    const projsContainer = document.getElementById('research-details-projects');
+    if (data.projects.length > 0) {
+      projsContainer.innerHTML = data.projects.map(proj => `
+        <div class="mini-project">
+          <div class="mini-project-dot"></div>
+          <div>
+            <h5>${proj.title}</h5>
+            <p>${proj.desc}</p>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      projsContainer.innerHTML = '<div class="empty-message">No projects yet in this area.</div>';
+    }
+    
+    // Show panel
+    detailsPanel.classList.add('active');
+    
+    // Scroll to panel
+    setTimeout(() => {
+      detailsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+
+  // Close research details panel
+  function closeResearchDetails() {
+    activeCategory = null;
+    document.querySelectorAll('.research-card').forEach(card => card.classList.remove('selected'));
+    document.getElementById('research-details').classList.remove('active');
+  }
+
+  // Show more publications
+  function togglePublications(btn) {
+    const hiddenPubs = document.querySelectorAll('.pub.hidden');
+    const isHidden = hiddenPubs[0]?.style.display !== 'block';
+    
+    hiddenPubs.forEach(pub => {
+      pub.style.display = isHidden ? 'block' : 'none';
+    });
+    
+    btn.textContent = isHidden ? 'Show less' : 'Show all publications';
+  }
+
+  // Show more projects
+  function toggleProjects(btn) {
+    const hiddenProjects = document.querySelectorAll('.project.hidden');
+    const isHidden = hiddenProjects[0]?.style.display !== 'flex';
+    
+    hiddenProjects.forEach(project => {
+      project.style.display = isHidden ? 'flex' : 'none';
+    });
+    
+    btn.textContent = isHidden ? 'Show less' : 'Show all projects';
+  }
+</script>
 
 </body>
 </html>
