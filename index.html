@@ -238,11 +238,16 @@
 
     /* SECTION HEADINGS */
     h2 {
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       font-weight: 600;
       letter-spacing: -0.02em;
       margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
+
+
 
     /* RESEARCH */
     .research-areas {
@@ -511,6 +516,37 @@
       border-top: 1px solid var(--border);
     }
     .edu-details strong { color: var(--text); font-weight: 500; }
+    .edu-item { cursor: pointer; }
+    .edu-item .expand-icon {
+      font-size: 12px;
+      color: var(--muted);
+      transition: transform 0.3s;
+    }
+    .edu-item.expanded .expand-icon { transform: rotate(180deg); }
+    .edu-summary {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, padding 0.3s ease-out;
+      padding-top: 0;
+    }
+    .edu-item.expanded .edu-summary {
+      max-height: 500px;
+      padding-top: 12px;
+    }
+    .edu-summary-content {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .edu-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .edu-summary-text { text-align: justify; }
 
     /* CONTACT */
     #contact { padding-bottom: 88px; }
@@ -605,6 +641,7 @@
     <ul>
       <li><a href="#research">Research</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -623,7 +660,7 @@
           I'm a Research Scientist with a strong focus on <strong>Reinforcement Learning</strong>, working at the intersection of theory and application since 2019 at the <a href="https://ceia.ufg.br/" target="_blank" rel="noopener"><strong>Center of Excellence in Artificial Intelligence (CEIA)</strong></a> and the <a href="https://akcit.ufg.br/" target="_blank" rel="noopener"><strong>Advanced Knowledge Center of Immersive Technologies (AKCIT)</strong></a> in Goiânia, Brazil. I'm also a founder of <a href="https://szero.io/" target="_blank" rel="noopener"><strong>Szero</strong></a>.
         </p>
         <p>
-          My work spans fundamental and applied research — leading R&D projects with private companies to design intelligent systems that deliver real-world impact, taking models from initial data analysis all the way to production.
+          My work spans fundamental and applied research — leading R&D projects with private companies across industries such as <strong>finance</strong>, <strong>agribusiness</strong>, and <strong>tourism</strong> to design intelligent systems that deliver real-world impact, taking models from initial data analysis all the way to production.
         </p>
         <p>
           <em>I'm currently open to PhD opportunities in reinforcement learning and related areas.</em>
@@ -701,23 +738,129 @@
 <section id="education" class="fade-in">
   <h2>Academic Background</h2>
   <div class="edu-list">
-    <div class="edu-item">
+    <div class="edu-item" onclick="toggleEducation(this)">
       <div class="edu-header">
         <span class="edu-institution">Universidade Federal de Goiás</span>
-        <span class="edu-period">Apr 2022 – May 2024</span>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="edu-period">Apr 2022 – May 2024</span>
+          <span class="expand-icon">▼</span>
+        </div>
       </div>
       <div class="edu-degree">M.Sc. in Computer Science</div>
       <div class="edu-details">
         <strong>Research:</strong> Balancing Relevance and Exposure Fairness in Personalized Recommendation Systems through Reinforcement Learning<br>
         <strong>Advisor:</strong> Prof. Dr. Telma Woerle de Lima Soares
       </div>
+      <div class="edu-summary">
+        <div class="edu-summary-content">
+          <div class="edu-keywords">
+            <span class="tag">Recommender Systems</span>
+            <span class="tag">Reinforcement Learning</span>
+            <span class="tag">Exposure Fairness</span>
+            <span class="tag">Personalization</span>
+          </div>
+          <p class="edu-summary-text">
+            Recommender Systems are widely used to filter information and suggest personalized content to users. Traditionally, these systems focus on maximizing relevance for individual users, which can create popularity bias and lack of diversity in recommendations. This work proposes a recommendation framework, A2Fair, that seeks to balance recommendation relevance with fairness in the exposure of recommended items. The approach consists of an Actor-Critic Reinforcement Learning algorithm, where state representation incorporates features of the last items interacted by the user, as well as the current fairness situation among item groups. The action suggests the next item to recommend, while the adaptive reward function weighs relevance and fairness according to the user's affinity for diversity. The A2Fair framework enables personalized and adaptive recommendations, taking into account individual preferences while promoting fairness and diversity. Experiments conducted on public datasets demonstrated the effectiveness of the A2Fair framework compared to other methods.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="edu-item">
+    <div class="edu-item" onclick="toggleEducation(this)">
       <div class="edu-header">
         <span class="edu-institution">Universidade Federal de Goiás</span>
-        <span class="edu-period">2014 – 2020</span>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="edu-period">2014 – 2020</span>
+          <span class="expand-icon">▼</span>
+        </div>
       </div>
       <div class="edu-degree">B.Sc. in Computer Science</div>
+      <div class="edu-details">
+        <strong>Research:</strong> Analysis of the Capability of Generalization of Reinforcement Learning Algorithms in the Context of Electronic Games<br>
+        <strong>Advisor:</strong> Prof. Dr. Telma Woerle de Lima Soares
+      </div>
+      <div class="edu-summary">
+        <div class="edu-summary-content">
+          <div class="edu-keywords">
+            <span class="tag">Reinforcement Learning</span>
+            <span class="tag">Neural Networks</span>
+            <span class="tag">Intelligent Agents</span>
+            <span class="tag">Games</span>
+            <span class="tag">GVGAI</span>
+            <span class="tag">PPO</span>
+          </div>
+          <p class="edu-summary-text">
+            In large-scale problems, reinforcement learning systems must use parameterized function approximators, such as neural networks, to generalize across similar situations and actions. Despite proving to be an effective method in specific complex problems, they still fail in generalization, and the most common reinforcement learning evaluation environments still encourage training and evaluation on the same set of environments. To assess an algorithm's ability to generalize across tasks, evaluation environments that measure performance on a distinct test set from those used in training are necessary. This work evaluates the performance of the Proximal Policy Optimization (PPO) algorithm in the General Video Game Artificial Intelligence (GVGAI) evaluation environment, which provides subdivision of a virtual game world into different phases or levels. Although PPO generally reports excellent results, it is notable that the algorithm suffers from overfitting to the training set.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="fade-in">
+  <h2>Volunteer Experience</h2>
+  <div class="edu-list">
+    <div class="edu-item" onclick="toggleEducation(this)">
+      <div class="edu-header">
+        <span class="edu-institution">Núcleo de Robótica Pequi Mecânico</span>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="edu-period">2017 – 2019</span>
+          <span class="expand-icon">▼</span>
+        </div>
+      </div>
+      <div class="edu-degree">Robotics Club · Universidade Federal de Goiás</div>
+      <div class="edu-details">
+        <strong>Focus:</strong> Robotics competitions (LARC) and R&D in automation and robotics
+      </div>
+      <div class="edu-summary">
+        <div class="edu-summary-content">
+          <div class="edu-keywords">
+            <span class="tag">Robotics</span>
+            <span class="tag">C++</span>
+            <span class="tag">Python</span>
+            <span class="tag">Navigation</span>
+            <span class="tag">Control Systems</span>
+            <span class="tag">Arduino</span>
+          </div>
+          <p class="edu-summary-text">
+            As part of Pequi Mecânico - UFG's robotics club - I collaborated on building autonomous systems for the Latin American Robotics Competition (LARC) and the IEEE Very Small Size Soccer (VSSS) league, developing navigation algorithms, control pipelines, and conducting community workshops on robotics and programming.
+          </p>
+          <ul style="margin-top: 12px; padding-left: 20px; color: var(--muted); font-size: 13px; line-height: 1.65;">
+            <li style="margin-bottom: 8px;">Designed navigation control pipelines for the IEEE SEK team, <span style="color: var(--accent); font-weight: 500;">winning 1st place at LARC 2017</span></li>
+            <li style="margin-bottom: 8px;">Built navigation and control pipelines for the IEEE VSSS robot soccer team</li>
+            <li>Organized workshops introducing Arduino and robotics fundamentals to the local community</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="edu-item" onclick="toggleEducation(this)">
+      <div class="edu-header">
+        <span class="edu-institution">Labschool-BR</span>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="edu-period">2019</span>
+          <span class="expand-icon">▼</span>
+        </div>
+      </div>
+      <div class="edu-degree">Technology Teacher · High School</div>
+      <div class="edu-details">
+        <strong>Focus:</strong> Programming and robotics education for high school students
+      </div>
+      <div class="edu-summary">
+        <div class="edu-summary-content">
+          <div class="edu-keywords">
+            <span class="tag">Teaching</span>
+            <span class="tag">Robotics</span>
+            <span class="tag">App Development</span>
+            <span class="tag">Game Development</span>
+            <span class="tag">MIT App Inventor</span>
+            <span class="tag">Stencyl</span>
+          </div>
+          <p class="edu-summary-text">
+             Taught technology classes to high school students, introducing them to programming and robotics fundamentals. The curriculum included hands-on projects, such as building Android apps with MIT App Inventor, creating games with Stencyl, and preparing robots for the Brazilian Robotics Olympiad (OBR).
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -842,7 +985,6 @@
   <div class="project-list">
 
     <div class="project" data-categories="rl">
-      <div class="project-dot"></div>
       <div>
         <h3>Debt Collection Personalization</h3>
         <p>Implementing RL techniques to orchestrate debtor contact strategies, optimizing the timing, channel, and approach to maximize recovered value on outstanding debts.</p>
@@ -853,7 +995,6 @@
     </div>
 
     <div class="project" data-categories="rl">
-      <div class="project-dot"></div>
       <div>
         <h3>Credit Recovery Algorithms</h3>
         <p>Applying reinforcement learning to improve conversion rates on newly negotiated debts, learning optimal follow-up strategies that adapt to individual payment behaviors.</p>
@@ -864,7 +1005,6 @@
     </div>
 
     <div class="project" data-categories="recsys">
-      <div class="project-dot"></div>
       <div>
         <h3>Agribusiness Marketplace Personalization</h3>
         <p>Building recommendation systems to personalize offers across agricultural products — from land and livestock to job listings and specialized services for the agribusiness sector.</p>
@@ -875,7 +1015,6 @@
     </div>
 
     <div class="project hidden" data-categories="recsys">
-      <div class="project-dot"></div>
       <div>
         <h3>Agribusiness Search & Recommendation Engine</h3>
         <p>Validating and customizing search and recommendation infrastructure for an agribusiness marketplace, adapting components to handle domain-specific queries and product catalogs.</p>
@@ -886,7 +1025,6 @@
     </div>
 
     <div class="project hidden" data-categories="recsys">
-      <div class="project-dot"></div>
       <div>
         <h3>Tourism Offer Personalization</h3>
         <p>Developing recommendation systems to personalize travel experiences — matching users with flights, hotels, restaurants, and tours based on preferences and booking patterns.</p>
@@ -897,7 +1035,6 @@
     </div>
 
     <div class="project hidden" data-categories="recsys">
-      <div class="project-dot"></div>
       <div>
         <h3>Intelligent Vehicle Inspection</h3>
         <p>Creating a recommendation system that suggests parts and components for automotive repair quotes, learning from historical inspection and repair data.</p>
@@ -908,7 +1045,6 @@
     </div>
 
     <div class="project hidden" data-categories="llm">
-      <div class="project-dot"></div>
       <div>
         <h3>Large Language Model for the Energy Sector</h3>
         <p>Building a domain-specific LLM tailored to the electric power sector — enabling specialized applications from document analysis to automated support across energy companies.</p>
@@ -1094,7 +1230,6 @@
     if (data.projects.length > 0) {
       projsContainer.innerHTML = data.projects.map(proj => `
         <div class="mini-project">
-          <div class="mini-project-dot"></div>
           <div>
             <h5>${proj.title}</h5>
             <p>${proj.desc}</p>
@@ -1143,6 +1278,11 @@
     });
     
     btn.textContent = isHidden ? 'Show less' : 'Show all projects';
+  }
+
+  // Toggle education item expansion
+  function toggleEducation(item) {
+    item.classList.toggle('expanded');
   }
 </script>
 
