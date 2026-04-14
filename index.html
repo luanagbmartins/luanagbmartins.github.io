@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luana Martins</title>
-  <meta name="description" content="Luana Martins - Research Scientist specializing in deep reinforcement learning, robotics, and LLM alignment. Building intelligent systems that learn and adapt." />
+  <meta name="description" content="Luana Martins - Research Scientist specializing in Deep Reinforcement Learning. Working towards General AI through agents that learn, adapt, and generalize across tasks." />
   <meta name="author" content="Luana Martins" />
   
   <!-- Open Graph -->
   <meta property="og:title" content="Luana Martins - Research Scientist" />
-  <meta property="og:description" content="Research scientist working at the intersection of deep reinforcement learning, robotics, and LLM alignment." />
+  <meta property="og:description" content="Research Scientist pursuing General AI through Deep Reinforcement Learning. Bridging fundamental research with real-world impact since 2019." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://luanagbmartins.github.io" />
   <meta property="og:image" content="https://luanagbmartins.github.io/IMG_0273.JPG" />
@@ -17,7 +17,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Luana Martins - Research Scientist" />
-  <meta name="twitter:description" content="Research scientist working at the intersection of deep reinforcement learning, robotics, and LLM alignment." />
+  <meta name="twitter:description" content="Research Scientist pursuing General AI through Deep Reinforcement Learning. Bridging fundamental research with real-world impact since 2019." />
   
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
@@ -181,6 +181,17 @@
       font-size: 15px;
     }
     .about-body p + p { margin-top: 12px; }
+    .about-body a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-decoration-color: var(--border);
+      text-underline-offset: 2px;
+      transition: color 0.15s, text-decoration-color 0.15s;
+    }
+    .about-body a:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+    }
     .links-row {
       display: flex;
       gap: 12px;
@@ -457,6 +468,50 @@
     .project p { font-size: 13px; color: var(--muted); line-height: 1.55; }
     .project-tech { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
 
+    /* EDUCATION */
+    .edu-list { display: flex; flex-direction: column; gap: 20px; }
+    .edu-item {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      background: var(--card-bg);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .edu-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      gap: 16px;
+    }
+    .edu-institution {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .edu-period {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .edu-degree {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .edu-details {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+    .edu-details strong { color: var(--text); font-weight: 500; }
+
     /* CONTACT */
     #contact { padding-bottom: 88px; }
     .contact-body { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
@@ -549,6 +604,7 @@
     </button>
     <ul>
       <li><a href="#research">Research</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -561,13 +617,16 @@
   <div class="hero-content">
     <div class="hero-text">
       <span class="hero-tag">Research Scientist</span>
-      <h1>Hey, I'm Luana 👋</h1>
+      <h1>Working towards General AI through Deep RL 🤖</h1>
       <div class="about-body">
         <p>
-          I'm a research scientist working at the intersection of <strong>deep reinforcement learning</strong>, robotics, and LLM alignment. My work focuses on building intelligent systems that can learn, adapt, and behave reliably in the real world.
+          I'm a Research Scientist with a strong focus on <strong>Reinforcement Learning</strong>, working at the intersection of theory and application since 2019 at the <a href="https://ceia.ufg.br/" target="_blank" rel="noopener"><strong>Center of Excellence in Artificial Intelligence (CEIA)</strong></a> and the <a href="https://akcit.ufg.br/" target="_blank" rel="noopener"><strong>Advanced Knowledge Center of Immersive Technologies (AKCIT)</strong></a> in Goiânia, Brazil.
         </p>
         <p>
-          I've collaborated with companies on applied AI R&D projects — from recommendation systems and credit recovery to natural language models for specialized domains. I'm particularly interested in bridging rigorous research with practical, deployable solutions.
+          My work spans fundamental and applied research — leading R&D projects with private companies to design intelligent systems that deliver real-world impact, taking models from initial data analysis all the way to production.
+        </p>
+        <p>
+          <em>I'm currently open to PhD opportunities in reinforcement learning and related areas.</em>
         </p>
       </div>
       <div class="links-row">
@@ -596,6 +655,9 @@
 <!-- RESEARCH -->
 <section id="research" class="fade-in">
   <h2>Research Interests</h2>
+  <p style="color: var(--muted); font-size: 14px; margin-bottom: 24px; max-width: 720px;">
+    My research is rooted in the pursuit of <strong style="color: var(--text);">General Artificial Intelligence</strong> — enabling agents to learn complex, adaptive behaviors through interaction and experience. I'm particularly drawn to the connection between learned policies and human behavior, exploring how intelligent systems can generalize knowledge, cooperate with humans, and make decisions in dynamic environments.
+  </p>
   <div class="research-areas">
     <div class="research-card" data-category="rl" onclick="showResearchDetails('rl', 'Deep Reinforcement Learning')">
       <div class="icon">🤖</div>
@@ -631,6 +693,31 @@
     <div class="research-details-section">
       <h4>R&D Projects</h4>
       <div id="research-details-projects"></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="fade-in">
+  <h2>Academic Background</h2>
+  <div class="edu-list">
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-institution">Universidade Federal de Goiás</span>
+        <span class="edu-period">Apr 2022 – May 2024</span>
+      </div>
+      <div class="edu-degree">M.Sc. in Computer Science</div>
+      <div class="edu-details">
+        <strong>Research:</strong> Balancing Relevance and Exposure Fairness in Personalized Recommendation Systems through Reinforcement Learning<br>
+        <strong>Advisor:</strong> Prof. Dr. Telma Woerle de Lima Soares
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-institution">Universidade Federal de Goiás</span>
+        <span class="edu-period">2014 – 2020</span>
+      </div>
+      <div class="edu-degree">B.Sc. in Computer Science</div>
     </div>
   </div>
 </section>
@@ -749,8 +836,8 @@
 <!-- PROJECTS -->
 <section id="projects" class="fade-in">
   <h2>R&D Projects</h2>
-  <p style="color: var(--muted); font-size: 13px; margin-bottom: 24px;">
-    Applied AI research in collaboration with industry partners, focused on deploying intelligent systems in production.
+  <p style="color: var(--muted); font-size: 14px; margin-bottom: 24px; max-width: 720px;">
+    Active participation in R&D initiatives, collaborating with companies to develop innovative AI technologies. From recommendation engines to reinforcement learning systems, these projects bridge academic research with production-grade deployments.
   </p>
   <div class="project-list">
 
@@ -758,7 +845,7 @@
       <div class="project-dot"></div>
       <div>
         <h3>Debt Collection Personalization</h3>
-        <p>Reinforcement learning to orchestrate debt recovery actions, maximizing recovered value while adapting to debtor behavior.</p>
+        <p>Implementing RL techniques to orchestrate debtor contact strategies, optimizing the timing, channel, and approach to maximize recovered value on outstanding debts.</p>
         <div class="project-tech">
           <span class="tag">Reinforcement Learning</span><span class="tag">Finance</span>
         </div>
@@ -769,7 +856,7 @@
       <div class="project-dot"></div>
       <div>
         <h3>Credit Recovery Algorithms</h3>
-        <p>Reinforcement learning applied to improve conversion of newly negotiated debts.</p>
+        <p>Applying reinforcement learning to improve conversion rates on newly negotiated debts, learning optimal follow-up strategies that adapt to individual payment behaviors.</p>
         <div class="project-tech">
           <span class="tag">Reinforcement Learning</span><span class="tag">Credit</span>
         </div>
@@ -780,7 +867,7 @@
       <div class="project-dot"></div>
       <div>
         <h3>Agribusiness Marketplace Personalization</h3>
-        <p>Recommendation systems for personalizing offers of agricultural products — land, livestock, job openings, and services.</p>
+        <p>Building recommendation systems to personalize offers across agricultural products — from land and livestock to job listings and specialized services for the agribusiness sector.</p>
         <div class="project-tech">
           <span class="tag">Recommender Systems</span><span class="tag">Agritech</span>
         </div>
@@ -791,7 +878,7 @@
       <div class="project-dot"></div>
       <div>
         <h3>Agribusiness Search & Recommendation Engine</h3>
-        <p>Validation, customization, and adaptation of a search and recommendation engine for agribusiness marketplace components.</p>
+        <p>Validating and customizing search and recommendation infrastructure for an agribusiness marketplace, adapting components to handle domain-specific queries and product catalogs.</p>
         <div class="project-tech">
           <span class="tag">Recommender Systems</span><span class="tag">Search</span><span class="tag">Agritech</span>
         </div>
@@ -802,7 +889,7 @@
       <div class="project-dot"></div>
       <div>
         <h3>Tourism Offer Personalization</h3>
-        <p>Recommendation systems to personalize offers for travel products including flights, hotels, restaurants, and tours.</p>
+        <p>Developing recommendation systems to personalize travel experiences — matching users with flights, hotels, restaurants, and tours based on preferences and booking patterns.</p>
         <div class="project-tech">
           <span class="tag">Recommender Systems</span><span class="tag">Travel</span>
         </div>
@@ -813,7 +900,7 @@
       <div class="project-dot"></div>
       <div>
         <h3>Intelligent Vehicle Inspection</h3>
-        <p>Recommendation system to suggest parts and components in automotive repair budgets.</p>
+        <p>Creating a recommendation system that suggests parts and components for automotive repair quotes, learning from historical inspection and repair data.</p>
         <div class="project-tech">
           <span class="tag">Recommender Systems</span><span class="tag">Automotive</span>
         </div>
@@ -824,7 +911,7 @@
       <div class="project-dot"></div>
       <div>
         <h3>Large Language Model for the Energy Sector</h3>
-        <p>Development of a domain-specific large language model applied to multiple solutions in the electric power sector.</p>
+        <p>Building a domain-specific LLM tailored to the electric power sector — enabling specialized applications from document analysis to automated support across energy companies.</p>
         <div class="project-tech">
           <span class="tag">LLM</span><span class="tag">Energy</span><span class="tag">NLP</span>
         </div>
@@ -933,8 +1020,8 @@
         { title: 'Personalizing Fairness: Adaptive RL with User Diversity Preference for Recommender Systems', meta: 'LGB Martins, BLM de Oliveira, B Brandão, M Santana · RLC Workshop, 2025', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:u-x6o8ySG0sC' }
       ],
       projects: [
-        { title: 'Debt Collection Personalization', desc: 'Reinforcement learning to orchestrate debt recovery actions' },
-        { title: 'Credit Recovery Algorithms', desc: 'RL applied to improve conversion of newly negotiated debts' }
+        { title: 'Debt Collection Personalization', desc: 'Orchestrating debtor contact strategies to maximize recovered value' },
+        { title: 'Credit Recovery Algorithms', desc: 'Optimizing follow-up strategies for newly negotiated debts' }
       ]
     },
     robotics: {
@@ -947,7 +1034,7 @@
         { title: 'Partial Reasoning in Language Models: Search and Refinement Guided by Uncertainty', meta: 'M da Luz, B Brandão, L Martins, et al. · arXiv, 2026', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:qjMakFHDy7sC' }
       ],
       projects: [
-        { title: 'Large Language Model for the Energy Sector', desc: 'Domain-specific LLM for the electric power sector' }
+        { title: 'Large Language Model for the Energy Sector', desc: 'Domain-specific LLM for document analysis and automated support in energy companies' }
       ]
     },
     recsys: {
@@ -956,10 +1043,10 @@
         { title: 'Personalizing Fairness: Adaptive RL with User Diversity Preference for Recommender Systems', meta: 'LGB Martins, BLM de Oliveira, B Brandão, M Santana · RLC Workshop, 2025', url: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ye1U4s8AAAAJ&citation_for_view=ye1U4s8AAAAJ:u-x6o8ySG0sC' }
       ],
       projects: [
-        { title: 'Agribusiness Marketplace Personalization', desc: 'Personalizing offers of agricultural products' },
-        { title: 'Agribusiness Search & Recommendation Engine', desc: 'Search and recommendation for agribusiness marketplace' },
-        { title: 'Tourism Offer Personalization', desc: 'Personalizing travel products — flights, hotels, tours' },
-        { title: 'Intelligent Vehicle Inspection', desc: 'Parts recommendation for automotive repair' }
+        { title: 'Agribusiness Marketplace Personalization', desc: 'Personalizing offers across land, livestock, jobs, and services' },
+        { title: 'Agribusiness Search & Recommendation Engine', desc: 'Domain-specific search infrastructure for agricultural products' },
+        { title: 'Tourism Offer Personalization', desc: 'Matching travelers with flights, hotels, restaurants, and tours' },
+        { title: 'Intelligent Vehicle Inspection', desc: 'Suggesting parts and components from repair history data' }
       ]
     }
   };
